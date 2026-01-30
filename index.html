@@ -60,34 +60,42 @@
 <body>
 
 <header>
-  <h1>Unser Iglu-Projekt</h1>
-  <p>Dokumentation und Präsentation unseres Projekts zum Bau eines Iglus als eigenständiges Vorhaben.</p>
+  <div style="position:absolute; top:20px; right:20px; display:flex; gap:10px;">
+    <button onclick="setLang('de')" title="Deutsch" style="padding:6px 10px; font-size:1.2rem; border:none; border-radius:8px; cursor:pointer;">🇩🇪</button>
+    <button onclick="setLang('en')" title="English" style="padding:6px 10px; font-size:1.2rem; border:none; border-radius:8px; cursor:pointer;">🇬🇧</button>
+  </div>
+  <h1 data-de="Unser Iglu-Projekt" data-en="Our Snow Shelter Project">Unser Iglu-Projekt</h1>
+  <p data-de="Dokumentation und Präsentation unseres Projekts zum Bau eines begehbaren Schneebaus als eigenständiges Vorhaben."
+     data-en="Documentation and presentation of our independent project to build a walk-in snow shelter.">
+     Dokumentation und Präsentation unseres Projekts zum Bau eines begehbaren Schneebaus als eigenständiges Vorhaben.
+  </p>
 </header>
 
 <section>
-  <h2>Projektübersicht</h2>
-  <p>
-    Ziel dieses Projekts war es, einen begehbaren Schneebau zu errichten. Dazu wurde zunächst ein großer Schneehaufen aufgeschichtet, der anschließend ausgehöhlt wurde. Bei diesem Vorgehen haben wir uns mit den physikalischen Eigenschaften von Schnee, seiner Tragfähigkeit sowie den klimatischen Bedingungen auseinandergesetzt.
+  <h2 data-de="Projektübersicht" data-en="Project Overview">Projektübersicht</h2>
+  <p data-de="Ziel dieses Projekts war es, einen begehbaren Schneebau zu errichten. Dazu wurde zunächst ein großer Schneehaufen aufgeschichtet, der anschließend ausgehöhlt wurde. Bei diesem Vorgehen haben wir uns mit den physikalischen Eigenschaften von Schnee, seiner Tragfähigkeit sowie den klimatischen Bedingungen auseinandergesetzt."
+     data-en="The aim of this project was to build a walk-in snow shelter. First, a large pile of snow was created and then hollowed out. This process involved exploring the physical properties of snow, its load-bearing capacity, and climatic conditions.">
+     Ziel dieses Projekts war es, einen begehbaren Schneebau zu errichten.
   </p>
 </section>
 
 <section>
-  <h2>Bauablauf</h2>
+  <h2 data-de="Bauablauf" data-en="Construction Process">Bauablauf</h2>
   <div class="grid">
     <div class="card">
-      <h3>1. Aufschichten des Schnees</h3>
+      <h3 data-de="1. Aufschichten des Schnees" data-en="1. Building the Snow Mound">1. Aufschichten des Schnees</h3>
       <p>Große Mengen Schnee wurden zu einem kompakten, hohen Schneehaufen aufgeschichtet.</p>
     </div>
     <div class="card">
-      <h3>2. Setzphase</h3>
+      <h3 data-de="2. Setzphase" data-en="2. Settling Phase">2. Setzphase</h3>
       <p>Der Schneehaufen wurde für eine gewisse Zeit ruhen gelassen, damit sich der Schnee verdichten konnte.</p>
     </div>
     <div class="card">
-      <h3>3. Aushöhlen</h3>
+      <h3 data-de="3. Aushöhlen" data-en="3. Hollowing Out">3. Aushöhlen</h3>
       <p>Der Schneehaufen wurde vorsichtig von innen ausgehöhlt, bis ein stabiler Innenraum entstand.</p>
     </div>
     <div class="card">
-      <h3>4. Fertigstellung</h3>
+      <h3 data-de="4. Fertigstellung" data-en="4. Finalization">4. Fertigstellung</h3>
       <p>Nacharbeiten am Innenraum und am Eingang zur Verbesserung der Stabilität.</p>
     </div>
   </div>
@@ -98,12 +106,21 @@
   <div class="grid">
     <div class="card"><strong>Höhe:</strong><br> ca. 1 m</div>
     <div class="card"><strong>Durchmesser:</strong><br> ca. 2 m</div>
-    <div class="card"><strong>Bauzeit:</strong><br> 10 Stunden bis jetzt</div>
+    <div class="card"><strong>Bauzeit:</strong><br> 15 Stunden</div>
   </div>
 </section>
 
 <section>
-  <h2>Projektteam</h2>
+  <h2 data-de="Bilder vom Projekt" data-en="Project Images">Bilder vom Projekt</h2>
+  <div class="grid">
+    <div class="card"><img src="bilder/bau1.jpg" alt="Schneehaufen" style="width:100%; border-radius:10px;"><p>Aufschichten des Schneehaufens</p></div>
+    <div class="card"><img src="bilder/bau2.jpg" alt="Aushöhlen" style="width:100%; border-radius:10px;"><p>Aushöhlen des Innenraums</p></div>
+    <div class="card"><img src="bilder/bau3.jpg" alt="Fertiger Schneebau" style="width:100%; border-radius:10px;"><p>Fertiger Schneebau</p></div>
+  </div>
+</section>
+
+<section>
+  <h2 data-de="Projektteam" data-en="Project Team">Projektteam</h2>
   <p>
     Dieses Projekt wurde von einem engagierten Team durchgeführt. Die Aufgaben reichten von Planung und Bau bis hin zur Dokumentation und Auswertung.
   </p>
@@ -113,5 +130,18 @@
   © 2026 – Iglu-Projekt
 </footer>
 
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-de]').forEach(el => {
+      el.innerText = el.getAttribute('data-' + lang);
+    });
+    localStorage.setItem('lang', lang);
+  }
+
+  const savedLang = localStorage.getItem('lang');
+  if (savedLang) setLang(savedLang);
+</script>
+
 </body>
 </html>
+
