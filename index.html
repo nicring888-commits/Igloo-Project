@@ -55,7 +55,36 @@
       font-size: 0.9rem;
       color: #374151;
     }
-  </style>
+    /* Animations */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+      transition: all 0.3s ease;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(white 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: 0.15;
+      pointer-events: none;
+      animation: snowMove 30s linear infinite;
+    }
+    @keyframes snowMove {
+      from { background-position: 0 0; }
+      to { background-position: 0 1000px; }
+    }
+
 </head>
 <body>
 
@@ -71,7 +100,7 @@
   </p>
 </header>
 
-<section>
+<section class="fade-section">
   <h2 data-de="Einleitung" data-en="Introduction">Einleitung</h2>
   <p data-de="Dieses Projekt dokumentiert den Bau eines selbstgebauten Iglus aus einem großen Schneehaufen. Ziel war es, praktisch zu testen, wie stabil und isolierend eine einfache Schneekonstruktion sein kann – ohne klassische Iglu-Technik, sondern durch Aushöhlen." 
      data-en="This project documents the construction of a self-made igloo created by hollowing out a large pile of snow. The goal was to practically test the stability and insulation of a simple snow structure without using traditional igloo block techniques.">
@@ -79,7 +108,7 @@
   </p>
 </section>
 
-<section>
+<section class="fade-section">
   <h2 data-de="Projektziel" data-en="Project Goal">Projektziel</h2>
   <p data-de="Untersucht werden sollten Stabilität, Wärmedämmung und Machbarkeit eines Iglus, der ausschließlich durch das Aushöhlen eines kompakten Schneehaufens entsteht." 
      data-en="The aim was to examine the stability, thermal insulation, and feasibility of an igloo created solely by hollowing out a compact pile of snow.">
@@ -87,7 +116,7 @@
   </p>
 </section>
 
-<section>
+<section class="fade-section">
   <h2 data-de="Durchführung" data-en="Construction Process">Durchführung</h2>
   <ol>
     <li data-de="Zusammentragen einer großen Menge Schnee und Verdichten zu einem stabilen Haufen." data-en="Gathering and compacting a large amount of snow into a solid mound.">Schnee sammeln und verdichten</li>
@@ -97,7 +126,7 @@
   </ol>
 </section>
 
-<section>
+<section class="fade-section">
   <h2 data-de="Fakten" data-en="Facts">Fakten</h2>
   <ul>
     <li data-de="Bauweise: Schneehaufen + Aushöhlen" data-en="Method: Snow mound hollowing">Bauweise: Schneehaufen + Aushöhlen</li>
@@ -107,7 +136,7 @@
   </ul>
 </section>
 
-<section>
+<section class="fade-section">
   <h2 data-de="Erkenntnisse" data-en="Learnings">Erkenntnisse</h2>
   <p data-de="Das Projekt zeigt, dass auch einfache Schneekonstruktionen überraschend stabil und isolierend sein können, wenn der Schnee gut verdichtet ist." 
      data-en="The project shows that even simple snow structures can be surprisingly stable and insulating if the snow is well compacted.">
@@ -117,7 +146,7 @@
 
 
 
-<section>
+<section class="fade-section">
   <h2 data-de="Projektteam" data-en="Project Team">Projektteam</h2>
   <p data-de="Dieses Projekt wurde von einem engagierten Team durchgeführt. Die Aufgaben reichten von Planung und Bau bis hin zur Dokumentation und Auswertung."
      data-en="This project was carried out by a dedicated team. Tasks ranged from planning and construction to documentation and evaluation.">
@@ -126,23 +155,37 @@
 </section>
 
 
+
 <footer>
   © 2026 – Iglu-Projekt
 </footer>
 
 <script>
   function setLang(lang) {
-    document.querySelectorAll('[data-de]').forEach(el => {
-      el.innerText = el.getAttribute('data-' + lang);
-    });
+    document.body.classList.add('lang-fade');
+    setTimeout(() => {
+      document.querySelectorAll('[data-de]').forEach(el => {
+        el.innerText = el.getAttribute('data-' + lang);
+      });
+      document.body.classList.remove('lang-fade');
+    }, 150);
+    localStorage.setItem('lang', lang);
+  });
     localStorage.setItem('lang', lang);
   }
 
   const savedLang = localStorage.getItem('lang');
   if (savedLang) setLang(savedLang);
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-section').forEach(sec => observer.observe(sec));
 </script>
 
 </body>
 </html>
-
-
