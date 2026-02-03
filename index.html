@@ -13,28 +13,15 @@
       line-height: 1.6;
     }
     header {
-      position: relative;
       background: linear-gradient(135deg, #cfe9ff, #eef6ff);
       padding: 80px 20px;
       text-align: center;
-      overflow: hidden;
     }
     header h1 {
-      position: relative;
-      z-index: 1;
-      font-size: 3rem;
-      margin-bottom: 10px;
-    } {
       font-size: 3rem;
       margin-bottom: 10px;
     }
     header p {
-      position: relative;
-      z-index: 1;
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
-    } {
       font-size: 1.2rem;
       max-width: 700px;
       margin: 0 auto;
@@ -68,128 +55,63 @@
       font-size: 0.9rem;
       color: #374151;
     }
-    /* Animations */
-    .fade-section {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-    .fade-section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-      transition: all 0.3s ease;
-    }
-    /* Schnee-Animation vorübergehend entfernt – Ursache für White Screen */
-    @keyframes snowMove {
-      from { background-position: 0 0; }
-      to { background-position: 0 1000px; }
-    }
-
+  </style>
 </head>
 <body>
 
 <header>
-  <div style="position:absolute; top:20px; right:20px; display:flex; gap:10px;">
-    <button onclick="setLang('de')" title="Deutsch" style="padding:6px 10px; font-size:1.2rem; border:none; border-radius:8px; cursor:pointer;">🇩🇪</button>
-    <button onclick="setLang('en')" title="English" style="padding:6px 10px; font-size:1.2rem; border:none; border-radius:8px; cursor:pointer;">🇬🇧</button>
-  </div>
-  <h1 data-de="Unser Iglu-Projekt" data-en="Our Snow Shelter Project">Unser Iglu-Projekt</h1>
-  <p data-de="Dokumentation und Präsentation unseres Projekts zum Bau eines begehbaren Schneebaus als eigenständiges Vorhaben."
-     data-en="Documentation and presentation of our independent project to build a walk-in snow shelter.">
-     Dokumentation und Präsentation unseres Projekts zum Bau eines begehbaren Schneebaus als eigenständiges Vorhaben.
-  </p>
+  <h1>Unser Iglu-Projekt</h1>
+  <p>Dokumentation und Präsentation unseres Projekts zum Bau eines Iglus als eigenständiges Vorhaben.</p>
 </header>
 
-<section class="fade-section">
-  <h2 data-de="Einleitung" data-en="Introduction">Einleitung</h2>
-  <p data-de="Dieses Projekt dokumentiert den Bau eines selbstgebauten Iglus aus einem großen Schneehaufen. Ziel war es, praktisch zu testen, wie stabil und isolierend eine einfache Schneekonstruktion sein kann – ohne klassische Iglu-Technik, sondern durch Aushöhlen." 
-     data-en="This project documents the construction of a self-made igloo created by hollowing out a large pile of snow. The goal was to practically test the stability and insulation of a simple snow structure without using traditional igloo block techniques.">
-     Dieses Projekt dokumentiert den Bau eines selbstgebauten Iglus aus einem großen Schneehaufen.
+<section>
+  <h2>Projektübersicht</h2>
+  <p>
+    Ziel dieses Projekts war es, einen begehbaren Schneebau zu errichten. Dazu wurde zunächst ein großer Schneehaufen aufgeschichtet, der anschließend ausgehöhlt wurde. Bei diesem Vorgehen haben wir uns mit den physikalischen Eigenschaften von Schnee, seiner Tragfähigkeit sowie den klimatischen Bedingungen auseinandergesetzt.
   </p>
 </section>
 
-<section class="fade-section">
-  <h2 data-de="Projektziel" data-en="Project Goal">Projektziel</h2>
-  <p data-de="Untersucht werden sollten Stabilität, Wärmedämmung und Machbarkeit eines Iglus, der ausschließlich durch das Aushöhlen eines kompakten Schneehaufens entsteht." 
-     data-en="The aim was to examine the stability, thermal insulation, and feasibility of an igloo created solely by hollowing out a compact pile of snow.">
-     Untersucht werden sollten Stabilität, Wärmedämmung und Machbarkeit.
+<section>
+  <h2>Bauablauf</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>1. Aufschichten des Schnees</h3>
+      <p>Große Mengen Schnee wurden zu einem kompakten, hohen Schneehaufen aufgeschichtet.</p>
+    </div>
+    <div class="card">
+      <h3>2. Setzphase</h3>
+      <p>Der Schneehaufen wurde für eine gewisse Zeit ruhen gelassen, damit sich der Schnee verdichten konnte.</p>
+    </div>
+    <div class="card">
+      <h3>3. Aushöhlen</h3>
+      <p>Der Schneehaufen wurde vorsichtig von innen ausgehöhlt, bis ein stabiler Innenraum entstand.</p>
+    </div>
+    <div class="card">
+      <h3>4. Fertigstellung</h3>
+      <p>Nacharbeiten am Innenraum und am Eingang zur Verbesserung der Stabilität.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Fakten zum Iglu</h2>
+  <div class="grid">
+    <div class="card"><strong>Höhe:</strong><br> ca. 1 m</div>
+    <div class="card"><strong>Durchmesser:</strong><br> ca. 4 m</div>
+    <div class="card"><strong>Bauzeit:</strong><br> 30 Stunden</div>
+  </div>
+</section>
+
+<section>
+  <h2>Projektteam</h2>
+  <p>
+    Dieses Projekt wurde von einem engagierten Team durchgeführt. Die Aufgaben reichten von Planung und Bau bis hin zur Dokumentation und Auswertung.
   </p>
 </section>
 
-<section class="fade-section">
-  <h2 data-de="Durchführung" data-en="Construction Process">Durchführung</h2>
-  <ol>
-    <li data-de="Zusammentragen einer großen Menge Schnee und Verdichten zu einem stabilen Haufen." data-en="Gathering and compacting a large amount of snow into a solid mound.">Schnee sammeln und verdichten</li>
-    <li data-de="Mehrere Stunden Aushärtungszeit, damit der Schnee fest wird." data-en="Allowing several hours for the snow to harden.">Aushärten lassen</li>
-    <li data-de="Vorsichtiges Aushöhlen des Innenraums von vorne." data-en="Carefully hollowing out the interior from the front.">Aushöhlen</li>
-    <li data-de="Einbau einer kleinen Öffnung zur Belüftung." data-en="Adding a small ventilation opening.">Belüftung</li>
-  </ol>
-</section>
-
-<section class="fade-section">
-  <h2 data-de="Fakten" data-en="Facts">Fakten</h2>
-  <ul>
-    <li data-de="Bauweise: Schneehaufen + Aushöhlen" data-en="Method: Snow mound hollowing">Bauweise: Schneehaufen + Aushöhlen</li>
-    <li data-de="Material: ausschließlich Schnee" data-en="Material: snow only">Material: ausschließlich Schnee</li>
-    <li data-de="Temperatur innen deutlich höher als außen" data-en="Inside temperature noticeably higher than outside">Wärmeeffekt vorhanden</li>
-    <li data-de="Stabilität abhängig von Schneekonsistenz" data-en="Stability depends on snow consistency">Stabilität abhängig vom Schnee</li>
-  </ul>
-</section>
-
-<section class="fade-section">
-  <h2 data-de="Erkenntnisse" data-en="Learnings">Erkenntnisse</h2>
-  <p data-de="Das Projekt zeigt, dass auch einfache Schneekonstruktionen überraschend stabil und isolierend sein können, wenn der Schnee gut verdichtet ist." 
-     data-en="The project shows that even simple snow structures can be surprisingly stable and insulating if the snow is well compacted.">
-     Überraschend stabil und gut isoliert.
-  </p>
-</section>
-
-
-
-<section class="fade-section">
-  <h2 data-de="Projektteam" data-en="Project Team">Projektteam</h2>
-  <p data-de="Dieses Projekt wurde von einem engagierten Team durchgeführt. Die Aufgaben reichten von Planung und Bau bis hin zur Dokumentation und Auswertung."
-     data-en="This project was carried out by a dedicated team. Tasks ranged from planning and construction to documentation and evaluation.">
-    Dieses Projekt wurde von einem engagierten Team durchgeführt.
-  </p>
-</section>
-
-
-    
 <footer>
   © 2026 – Iglu-Projekt
 </footer>
-
-<script>
-  function setLang(lang) {
-    document.body.classList.add('lang-fade');
-    setTimeout(() => {
-      document.querySelectorAll('[data-de]').forEach(el => {
-        el.innerText = el.getAttribute('data-' + lang);
-      });
-      document.body.classList.remove('lang-fade');
-    }, 150);
-    localStorage.setItem('lang', lang);
-  });
-    localStorage.setItem('lang', lang);
-  }
-
-  const savedLang = localStorage.getItem('lang');
-  if (savedLang) setLang(savedLang);
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.fade-section').forEach(sec => observer.observe(sec));
-</script>
 
 </body>
 </html>
