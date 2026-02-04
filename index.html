@@ -60,6 +60,37 @@
       font-size: 0.9rem;
       color: #374151;
     }
+      .timeline {
+      border-left: 4px solid #60a5fa;
+      padding-left: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .step {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+
+    .step span {
+      background: #60a5fa;
+      color: white;
+      font-weight: bold;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step h3 {
+      margin: 0 0 5px 0;
+    }
+
   </style>
 </head>
 <body>
@@ -101,7 +132,41 @@
 </section>
 
 <section>
-  <h2 data-de="Fakten" data-en="Facts">Fakten</h2>
+  <h2 data-de="Projektablauf" data-en="Project Timeline">Projektablauf</h2>
+  <div class="timeline">
+    <div class="step">
+      <span>1</span>
+      <div>
+        <h3 data-de="Planung" data-en="Planning">Planung</h3>
+        <p data-de="Idee, Ort und Sicherheitsaspekte wurden vorab festgelegt." data-en="Idea, location, and safety aspects were defined in advance.">Idee, Ort und Sicherheitsaspekte wurden vorab festgelegt.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span>2</span>
+      <div>
+        <h3 data-de="Schneehaufen" data-en="Snow Pile">Schneehaufen</h3>
+        <p data-de="Große Menge Schnee wurde aufgeschichtet und verdichtet." data-en="A large amount of snow was piled up and compacted.">Große Menge Schnee wurde aufgeschichtet und verdichtet.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span>3</span>
+      <div>
+        <h3 data-de="Aushöhlen" data-en="Hollowing Out">Aushöhlen</h3>
+        <p data-de="Der Schneehaufen wurde vorsichtig von innen ausgehöhlt." data-en="The snow pile was carefully hollowed out from the inside.">Der Schneehaufen wurde vorsichtig von innen ausgehöhlt.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span>4</span>
+      <div>
+        <h3 data-de="Ergebnis" data-en="Result">Ergebnis</h3>
+        <p data-de="Ein stabiler, begehbarer Schneebau entstand." data-en="A stable, walk-in snow shelter was created.">Ein stabiler, begehbarer Schneebau entstand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 data-de="Fakten" data-en="Facts">Fakten</h2> data-en="Facts">Fakten</h2>
   <ul>
     <li data-de="Projektart: Eigenständiges Freizeitprojekt" data-en="Project type: independent leisure project">Projektart: Eigenständiges Freizeitprojekt</li>
     <li data-de="Bauweise: Schneehaufen mit Aushöhlung" data-en="Construction method: piled snow, hollowed out">Bauweise: Schneehaufen mit Aushöhlung</li>
