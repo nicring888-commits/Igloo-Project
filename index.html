@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iglu-Projekt</title>
+  <title>Iglu‑Projekt</title>
   <style>
     body {
       margin: 0;
@@ -13,9 +13,10 @@
       line-height: 1.6;
     }
     header {
-      background: linear-gradient(135deg, #cfe9ff, #eef6ff);
-      padding: 80px 20px;
+      background: #eaf3ff;
+      padding: 70px 20px;
       text-align: center;
+      position: relative;
     }
     header h1 {
       font-size: 3rem;
@@ -25,6 +26,21 @@
       font-size: 1.2rem;
       max-width: 700px;
       margin: 0 auto;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    .lang-switch button {
+      padding: 6px 10px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: white;
     }
     section {
       padding: 60px 20px;
@@ -36,17 +52,6 @@
       margin-bottom: 20px;
       border-left: 5px solid #60a5fa;
       padding-left: 15px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
     footer {
       background-color: #e5eef7;
@@ -60,58 +65,83 @@
 <body>
 
 <header>
-  <h1>Unser Iglu-Projekt</h1>
-  <p>Dokumentation und Präsentation unseres Projekts zum Bau eines Iglus als eigenständiges Vorhaben.</p>
+  <div class="lang-switch">
+    <button onclick="setLang('de')">🇩🇪</button>
+    <button onclick="setLang('en')">🇬🇧</button>
+  </div>
+  <h1 data-de="Unser Iglu‑Projekt" data-en="Our Snow Shelter Project">Unser Iglu‑Projekt</h1>
+  <p data-de="Dokumentation eines eigenständigen Projekts: Bau eines begehbaren Schneebaus durch Aufhäufen und anschließendes Aushöhlen von Schnee."
+     data-en="Documentation of an independent project: construction of a walk‑in snow shelter by piling up and hollowing out snow.">
+    Dokumentation eines eigenständigen Projekts: Bau eines begehbaren Schneebaus durch Aufhäufen und anschließendes Aushöhlen von Schnee.
+  </p>
 </header>
 
 <section>
-  <h2>Projektübersicht</h2>
-  <p>
-    Ziel dieses Projekts war es, einen begehbaren Schneebau zu errichten. Dazu wurde zunächst ein großer Schneehaufen aufgeschichtet, der anschließend ausgehöhlt wurde. Bei diesem Vorgehen haben wir uns mit den physikalischen Eigenschaften von Schnee, seiner Tragfähigkeit sowie den klimatischen Bedingungen auseinandergesetzt.
+  <h2 data-de="Einleitung" data-en="Introduction">Einleitung</h2>
+  <p data-de="Ziel dieses Projekts war es, einen stabilen und begehbaren Schneebau zu errichten. Anders als bei einem klassischen Iglu aus Eisblöcken wurde hierbei ein großer Schneehaufen aufgeschichtet und anschließend ausgehöhlt."
+     data-en="The aim of this project was to construct a stable, walk‑in snow shelter. Unlike a classic igloo made of ice blocks, a large pile of snow was built and then hollowed out.">
+    Ziel dieses Projekts war es, einen stabilen und begehbaren Schneebau zu errichten. Anders als bei einem klassischen Iglu aus Eisblöcken wurde hierbei ein großer Schneehaufen aufgeschichtet und anschließend ausgehöhlt.
   </p>
 </section>
 
 <section>
-  <h2>Bauablauf</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>1. Aufschichten des Schnees</h3>
-      <p>Große Mengen Schnee wurden zu einem kompakten, hohen Schneehaufen aufgeschichtet.</p>
-    </div>
-    <div class="card">
-      <h3>2. Setzphase</h3>
-      <p>Der Schneehaufen wurde für eine gewisse Zeit ruhen gelassen, damit sich der Schnee verdichten konnte.</p>
-    </div>
-    <div class="card">
-      <h3>3. Aushöhlen</h3>
-      <p>Der Schneehaufen wurde vorsichtig von innen ausgehöhlt, bis ein stabiler Innenraum entstand.</p>
-    </div>
-    <div class="card">
-      <h3>4. Fertigstellung</h3>
-      <p>Nacharbeiten am Innenraum und am Eingang zur Verbesserung der Stabilität.</p>
-    </div>
-  </div>
+  <h2 data-de="Projektziel" data-en="Project Goal">Projektziel</h2>
+  <p data-de="Das Projekt sollte zeigen, dass mit einfachen Mitteln und ohne Spezialwerkzeuge ein funktionaler Schneeschutzraum gebaut werden kann. Zudem stand die praktische Erfahrung mit Schnee als Baumaterial im Vordergrund."
+     data-en="The project aimed to demonstrate that a functional snow shelter can be built using simple methods and without special tools. Practical experience with snow as a building material was a key focus.">
+    Das Projekt sollte zeigen, dass mit einfachen Mitteln und ohne Spezialwerkzeuge ein funktionaler Schneeschutzraum gebaut werden kann.
+  </p>
 </section>
 
 <section>
-  <h2>Fakten zum Iglu</h2>
-  <div class="grid">
-    <div class="card"><strong>Höhe:</strong><br> ca. 1 m</div>
-    <div class="card"><strong>Durchmesser:</strong><br> ca. 4 m</div>
-    <div class="card"><strong>Bauzeit:</strong><br> 30 Stunden</div>
-  </div>
+  <h2 data-de="Durchführung" data-en="Construction Process">Durchführung</h2>
+  <p data-de="Zunächst wurde an geeigneter Stelle ein großer Schneehaufen aufgeschichtet und verdichtet. Nach einer kurzen Wartezeit wurde der Schnee von innen vorsichtig ausgehöhlt, sodass ein stabiler Hohlraum entstand."
+     data-en="First, a large pile of snow was built and compacted at a suitable location. After a short waiting period, the snow was carefully hollowed out from the inside, creating a stable cavity.">
+    Zunächst wurde an geeigneter Stelle ein großer Schneehaufen aufgeschichtet und verdichtet.
+  </p>
 </section>
 
 <section>
-  <h2>Projektteam</h2>
-  <p>
-    Dieses Projekt wurde von einem engagierten Team durchgeführt. Die Aufgaben reichten von Planung und Bau bis hin zur Dokumentation und Auswertung.
+  <h2 data-de="Fakten" data-en="Facts">Fakten</h2>
+  <ul>
+    <li data-de="Projektart: Eigenständiges Freizeitprojekt" data-en="Project type: independent leisure project">Projektart: Eigenständiges Freizeitprojekt</li>
+    <li data-de="Bauweise: Schneehaufen mit Aushöhlung" data-en="Construction method: piled snow, hollowed out">Bauweise: Schneehaufen mit Aushöhlung</li>
+    <li data-de="Material: Natürlicher Schnee" data-en="Material: natural snow">Material: Natürlicher Schnee</li>
+    <li data-de="Werkzeuge: Hände und einfache Hilfsmittel" data-en="Tools: hands and simple tools">Werkzeuge: Hände und einfache Hilfsmittel</li>
+    <li data-de="Nutzung: Kurzzeitiger Schneeschutzraum" data-en="Use: short-term snow shelter">Nutzung: Kurzzeitiger Schneeschutzraum</li>
+  </ul>
+</section>
+
+<section>
+  <h2 data-de="Projektteam" data-en="Project Team">Projektteam</h2>
+  <p data-de="Das Projekt wurde gemeinschaftlich von einem kleinen Team geplant und umgesetzt. Die Aufgaben umfassten Planung, Bau, Sicherheit und Dokumentation."
+     data-en="The project was planned and carried out collaboratively by a small team. Tasks included planning, construction, safety, and documentation.">
+    Das Projekt wurde gemeinschaftlich von einem kleinen Team geplant und umgesetzt.
+  </p>
+</section>
+
+<section>
+  <h2 data-de="Erkenntnisse" data-en="Findings">Erkenntnisse</h2>
+  <p data-de="Der Schneebau erwies sich als überraschend stabil. Besonders wichtig waren eine ausreichende Wandstärke und vorsichtiges Aushöhlen, um die Stabilität zu erhalten."
+     data-en="The snow shelter proved to be surprisingly stable. Maintaining sufficient wall thickness and careful hollowing were crucial for stability.">
+    Der Schneebau erwies sich als überraschend stabil.
   </p>
 </section>
 
 <footer>
-  © 2026 – Iglu-Projekt
+  © 2026 – Iglu‑Projekt
 </footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-de]').forEach(el => {
+      el.innerText = el.getAttribute('data-' + lang);
+    });
+    localStorage.setItem('lang', lang);
+  }
+
+  const savedLang = localStorage.getItem('lang');
+  if (savedLang) setLang(savedLang);
+</script>
 
 </body>
 </html>
