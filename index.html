@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iglu‑Projekt</title>
+  <title>Iglu-Projekt</title>
   <style>
     body {
       margin: 0;
@@ -34,14 +34,7 @@
       display: flex;
       gap: 10px;
     }
-
-    .dark-toggle {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-    }
-
-    .dark-toggle button {
+    .lang-switch button {
       padding: 6px 10px;
       font-size: 1.1rem;
       border: none;
@@ -49,7 +42,12 @@
       cursor: pointer;
       background: white;
     }
-    .lang-switch button {
+    .dark-toggle {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    .dark-toggle button {
       padding: 6px 10px;
       font-size: 1.1rem;
       border: none;
@@ -75,20 +73,18 @@
       font-size: 0.9rem;
       color: #374151;
     }
-      .timeline {
+    .timeline {
       border-left: 4px solid #60a5fa;
       padding-left: 25px;
       display: flex;
       flex-direction: column;
       gap: 30px;
     }
-
     .step {
       display: flex;
       gap: 15px;
       align-items: flex-start;
     }
-
     .step span {
       background: #60a5fa;
       color: white;
@@ -101,42 +97,71 @@
       justify-content: center;
       flex-shrink: 0;
     }
-
     .step h3 {
       margin: 0 0 5px 0;
     }
-
-      /* Dark Mode */
+    .tech-data {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 12px;
+      background: var(--card-bg, #f4f6f8);
+      color: var(--text-color, #111);
+    }
+    .tech-data h2 {
+      margin-bottom: 15px;
+    }
+    .tech-data ul {
+      list-style: none;
+      padding: 0;
+    }
+    .tech-data li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      border-bottom: 2px solid #60a5fa;
+    }
+    /* Dark Mode */
     body.dark {
       background-color: #0f172a;
       color: #e5e7eb;
     }
-
     body.dark header {
       background: #020617;
     }
-
     body.dark section h2 {
       border-left-color: #38bdf8;
     }
-
     body.dark footer {
       background-color: #020617;
       color: #cbd5f5;
     }
-
     body.dark .timeline {
       border-left-color: #38bdf8;
     }
-
     body.dark .step span {
       background: #38bdf8;
     }
-
+    body.dark .tech-data {
+      background: #1e293b;
+      color: #e5e7eb;
+    }
+    body.dark table th, body.dark table td {
+      border-color: #38bdf8;
+    }
   </style>
 </head>
 <body>
-
 <header>
   <div class="dark-toggle">
     <button onclick="toggleDark()">🌙</button>
@@ -145,9 +170,9 @@
     <button onclick="setLang('de')">🇩🇪</button>
     <button onclick="setLang('en')">🇬🇧</button>
   </div>
-  <h1 data-de="Unser Iglu‑Projekt" data-en="Our Snow Shelter Project">Unser Iglu‑Projekt</h1>
+  <h1 data-de="Unser Iglu-Projekt" data-en="Our Snow Shelter Project">Unser Iglu-Projekt</h1>
   <p data-de="Dokumentation eines eigenständigen Projekts: Bau eines begehbaren Schneebaus durch Aufhäufen und anschließendes Aushöhlen von Schnee."
-     data-en="Documentation of an independent project: construction of a walk‑in snow shelter by piling up and hollowing out snow.">
+     data-en="Documentation of an independent project: construction of a walk-in snow shelter by piling up and hollowing out snow.">
     Dokumentation eines eigenständigen Projekts: Bau eines begehbaren Schneebaus durch Aufhäufen und anschließendes Aushöhlen von Schnee.
   </p>
 </header>
@@ -155,22 +180,33 @@
 <section>
   <h2 data-de="Einleitung" data-en="Introduction">Einleitung</h2>
   <p data-de="Ziel dieses Projekts war es, einen stabilen und begehbaren Schneebau zu errichten. Anders als bei einem klassischen Iglu aus Eisblöcken wurde hierbei ein großer Schneehaufen aufgeschichtet und anschließend ausgehöhlt."
-     data-en="The aim of this project was to construct a stable, walk‑in snow shelter. Unlike a classic igloo made of ice blocks, a large pile of snow was built and then hollowed out.">
+     data-en="The aim of this project was to construct a stable, walk-in snow shelter. Unlike a classic igloo made of ice blocks, a large pile of snow was built and then hollowed out.">
     Ziel dieses Projekts war es, einen stabilen und begehbaren Schneebau zu errichten. Anders als bei einem klassischen Iglu aus Eisblöcken wurde hierbei ein großer Schneehaufen aufgeschichtet und anschließend ausgehöhlt.
   </p>
 </section>
 
 <section>
   <h2 data-de="Projektziel" data-en="Project Goal">Projektziel</h2>
-  <p data-de="Das Projekt sollte zeigen, dass mit einfachen Mitteln und ohne Spezialwerkzeuge ein funktionaler Schneeschutzraum gebaut werden kann. Zudem stand die praktische Erfahrung mit Schnee als Baumaterial im Vordergrund."
+  <p data-de="Das Projekt sollte zeigen, dass mit einfachen Mitteln und ohne Spezialwerkzeuge ein funktionaler Schneeschutzraum gebaut werden kann. Praktische Erfahrung mit Schnee als Baumaterial war im Vordergrund."
      data-en="The project aimed to demonstrate that a functional snow shelter can be built using simple methods and without special tools. Practical experience with snow as a building material was a key focus.">
     Das Projekt sollte zeigen, dass mit einfachen Mitteln und ohne Spezialwerkzeuge ein funktionaler Schneeschutzraum gebaut werden kann.
   </p>
 </section>
 
+<section class="tech-data">
+  <h2 data-de="📐 Technische Daten" data-en="📐 Technical Data">📐 Technische Daten</h2>
+  <ul>
+    <li><strong>Höhe des Iglus:</strong> ca. 1,8 m</li>
+    <li><strong>Durchmesser:</strong> ca. 2,5 m</li>
+    <li><strong>Wandstärke:</strong> ca. 40–60 cm</li>
+    <li><strong>Bauzeit:</strong> ca. 4 Stunden</li>
+    <li><strong>Anzahl Personen:</strong> 3</li>
+  </ul>
+</section>
+
 <section>
   <h2 data-de="Durchführung" data-en="Construction Process">Durchführung</h2>
-  <p data-de="Zunächst wurde an geeigneter Stelle ein großer Schneehaufen aufgeschichtet und verdichtet. Nach einer kurzen Wartezeit wurde der Schnee von innen vorsichtig ausgehöhlt, sodass ein stabiler Hohlraum entstand."
+  <p data-de="Zunächst wurde an geeigneter Stelle ein großer Schneehaufen aufgeschichtet und verdichtet. Nach einer kurzen Wartezeit wurde der Schnee vorsichtig ausgehöhlt, sodass ein stabiler Hohlraum entstand."
      data-en="First, a large pile of snow was built and compacted at a suitable location. After a short waiting period, the snow was carefully hollowed out from the inside, creating a stable cavity.">
     Zunächst wurde an geeigneter Stelle ein großer Schneehaufen aufgeschichtet und verdichtet.
   </p>
@@ -231,39 +267,39 @@
 
 <section>
   <h2 data-de="Vergleich der Bauarten" data-en="Comparison of Snow Structures">Vergleich der Bauarten</h2>
-  <table style="width:100%; border-collapse: collapse;">
+  <table>
     <thead>
       <tr>
-        <th style="border-bottom:2px solid #60a5fa; padding:10px; text-align:left;" data-de="Merkmal" data-en="Feature">Merkmal</th>
-        <th style="border-bottom:2px solid #60a5fa; padding:10px;" data-de="Schneehaufen-Iglu" data-en="Snow Mound Igloo">Schneehaufen-Iglu</th>
-        <th style="border-bottom:2px solid #60a5fa; padding:10px;" data-de="Klassisches Iglu" data-en="Classic Igloo">Klassisches Iglu</th>
-        <th style="border-bottom:2px solid #60a5fa; padding:10px;" data-de="Schneehöhle" data-en="Snow Cave">Schneehöhle</th>
+        <th data-de="Merkmal" data-en="Feature">Merkmal</th>
+        <th data-de="Schneehaufen-Iglu" data-en="Snow Mound Igloo">Schneehaufen-Iglu</th>
+        <th data-de="Klassisches Iglu" data-en="Classic Igloo">Klassisches Iglu</th>
+        <th data-de="Schneehöhle" data-en="Snow Cave">Schneehöhle</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td style="padding:10px;" data-de="Bauaufwand" data-en="Construction effort">Bauaufwand</td>
-        <td style="padding:10px;" data-de="Gering" data-en="Low">Gering</td>
-        <td style="padding:10px;" data-de="Hoch" data-en="High">Hoch</td>
-        <td style="padding:10px;" data-de="Mittel" data-en="Medium">Mittel</td>
+        <td data-de="Bauaufwand" data-en="Construction effort">Bauaufwand</td>
+        <td data-de="Gering" data-en="Low">Gering</td>
+        <td data-de="Hoch" data-en="High">Hoch</td>
+        <td data-de="Mittel" data-en="Medium">Mittel</td>
       </tr>
       <tr>
-        <td style="padding:10px;" data-de="Benötigte Erfahrung" data-en="Required experience">Benötigte Erfahrung</td>
-        <td style="padding:10px;" data-de="Kaum" data-en="Very little">Kaum</td>
-        <td style="padding:10px;" data-de="Viel" data-en="A lot">Viel</td>
-        <td style="padding:10px;" data-de="Etwas" data-en="Some">Etwas</td>
+        <td data-de="Benötigte Erfahrung" data-en="Required experience">Benötigte Erfahrung</td>
+        <td data-de="Kaum" data-en="Very little">Kaum</td>
+        <td data-de="Viel" data-en="A lot">Viel</td>
+        <td data-de="Etwas" data-en="Some">Etwas</td>
       </tr>
       <tr>
-        <td style="padding:10px;" data-de="Stabilität" data-en="Stability">Stabilität</td>
-        <td style="padding:10px;" data-de="Gut bei verdichtetem Schnee" data-en="Good with compacted snow">Gut bei verdichtetem Schnee</td>
-        <td style="padding:10px;" data-de="Sehr hoch" data-en="Very high">Sehr hoch</td>
-        <td style="padding:10px;" data-de="Abhängig vom Hang" data-en="Depends on slope">Abhängig vom Hang</td>
+        <td data-de="Stabilität" data-en="Stability">Stabilität</td>
+        <td data-de="Gut bei verdichtetem Schnee" data-en="Good with compacted snow">Gut bei verdichtetem Schnee</td>
+        <td data-de="Sehr hoch" data-en="Very high">Sehr hoch</td>
+        <td data-de="Abhängig vom Hang" data-en="Depends on slope">Abhängig vom Hang</td>
       </tr>
       <tr>
-        <td style="padding:10px;" data-de="Zeitaufwand" data-en="Time required">Zeitaufwand</td>
-        <td style="padding:10px;" data-de="Kurz" data-en="Short">Kurz</td>
-        <td style="padding:10px;" data-de="Lang" data-en="Long">Lang</td>
-        <td style="padding:10px;" data-de="Mittel" data-en="Medium">Mittel</td>
+        <td data-de="Zeitaufwand" data-en="Time required">Zeitaufwand</td>
+        <td data-de="Kurz" data-en="Short">Kurz</td>
+        <td data-de="Lang" data-en="Long">Lang</td>
+        <td data-de="Mittel" data-en="Medium">Mittel</td>
       </tr>
     </tbody>
   </table>
@@ -271,14 +307,13 @@
 
 <section>
   <h2 data-de="Erkenntnisse" data-en="Findings">Erkenntnisse</h2>
-  <p data-de="Der Schneebau erwies sich als überraschend stabil. Besonders wichtig waren eine ausreichende Wandstärke und vorsichtiges Aushöhlen, um die Stabilität zu erhalten."
-     data-en="The snow shelter proved to be surprisingly stable. Maintaining sufficient wall thickness and careful hollowing were crucial for stability.">
+  <p data-de="Der Schneebau erwies sich als überraschend stabil. Besonders wichtig waren eine ausreichende Wandstärke und vorsichtiges Aushöhlen, um die Stabilität zu erhalten." data-en="The snow shelter proved to be surprisingly stable. Maintaining sufficient wall thickness and careful hollowing were crucial for stability.">
     Der Schneebau erwies sich als überraschend stabil.
   </p>
 </section>
 
 <footer>
-  © 2026 – Iglu‑Projekt
+  © 2026 – Iglu-Projekt
 </footer>
 
 <script>
@@ -291,6 +326,7 @@
 
   const savedLang = localStorage.getItem('lang');
   if (savedLang) setLang(savedLang);
+
   function toggleDark() {
     document.body.classList.toggle('dark');
     localStorage.setItem('dark', document.body.classList.contains('dark'));
@@ -300,6 +336,5 @@
     document.body.classList.add('dark');
   }
 </script>
-
 </body>
 </html>
