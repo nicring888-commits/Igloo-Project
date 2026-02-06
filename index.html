@@ -7,154 +7,111 @@
 
 <style>
 :root {
-  --bg: #f4f7fb;
-  --text: #1f2937;
-  --card: #ffffff;
-  --accent: #60a5fa;
+  --bg:#f4f7fb;
+  --text:#1f2937;
+  --card:#ffffff;
+  --accent:#60a5fa;
+}
+body.dark{
+  --bg:#0f172a;
+  --text:#e5e7eb;
+  --card:#1e293b;
+  --accent:#38bdf8;
+}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
 }
 
-body.dark {
-  --bg: #0f172a;
-  --text: #e5e7eb;
-  --card: #1e293b;
-  --accent: #38bdf8;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-}
-
-/* Schneeflocken */
-.snowflakes {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-.snowflake {
-  position: absolute;
-  top: -10%;
-  font-size: 1.5rem;
-  color: #cfe9ff;
-  opacity: 0.7;
-  animation: fall linear infinite;
+/* ❄️ Schneeflocken */
+.snowflakes{position:fixed;inset:0;pointer-events:none;z-index:0}
+.snowflake{
+  position:absolute;top:-10%;
+  font-size:1.5rem;color:#cfe9ff;opacity:.7;
+  animation:fall linear infinite
 }
 .snowflake:nth-child(1){left:10%;animation-duration:14s}
 .snowflake:nth-child(2){left:30%;animation-duration:18s}
 .snowflake:nth-child(3){left:50%;animation-duration:12s}
 .snowflake:nth-child(4){left:70%;animation-duration:20s}
 .snowflake:nth-child(5){left:90%;animation-duration:16s}
+@keyframes fall{to{transform:translateY(110vh)}}
 
-@keyframes fall {
-  to { transform: translateY(110vh); }
+header,section,footer{position:relative;z-index:1}
+
+header{
+  background:var(--card);
+  padding:70px 20px;
+  text-align:center;
 }
+.lang-switch,.dark-toggle{position:absolute;top:20px}
+.lang-switch{right:20px}
+.dark-toggle{left:20px}
 
-header, section, footer {
-  position: relative;
-  z-index: 1;
+button{
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  background:var(--card);
 }
+button:hover{animation:pulse 1s infinite alternate}
+@keyframes pulse{from{transform:scale(1)}to{transform:scale(1.05)}}
 
-header {
-  background: var(--card);
-  padding: 70px 20px;
-  text-align: center;
+section{
+  max-width:900px;
+  margin:auto;
+  padding:60px 20px;
 }
-
-.lang-switch, .dark-toggle {
-  position: absolute;
-  top: 20px;
-}
-.lang-switch { right: 20px; }
-.dark-toggle { left: 20px; }
-
-button {
-  border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  background: var(--card);
-}
-
-button:hover {
-  animation: pulse 1s infinite alternate;
+h2{
+  border-left:5px solid var(--accent);
+  padding-left:15px;
 }
 
-@keyframes pulse {
-  from { transform: scale(1); }
-  to { transform: scale(1.05); }
+.tech-data{
+  background:var(--card);
+  padding:20px;
+  border-radius:12px;
+  max-width:600px;
+  margin:auto;
+}
+.tech-data ul{list-style:none;padding:0}
+
+.timeline{
+  border-left:4px solid var(--accent);
+  padding-left:25px;
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+}
+.step{
+  opacity:0;
+  transform:translateX(-50px);
+  transition:.6s;
+  display:flex;
+  gap:15px;
+}
+.step.visible{opacity:1;transform:translateX(0)}
+.step span{
+  background:var(--accent);
+  color:#fff;
+  width:32px;height:32px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-section {
-  max-width: 900px;
-  margin: auto;
-  padding: 60px 20px;
-}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px;border-bottom:1px solid #999}
 
-h2 {
-  border-left: 5px solid var(--accent);
-  padding-left: 15px;
-}
-
-.timeline {
-  border-left: 4px solid var(--accent);
-  padding-left: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.step {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: 0.6s;
-  display: flex;
-  gap: 15px;
-}
-.step.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-.step span {
-  background: var(--accent);
-  color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tech-data {
-  background: var(--card);
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 600px;
-  margin: auto;
-}
-
-.tech-data ul {
-  list-style: none;
-  padding: 0;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 10px;
-  border-bottom: 1px solid #999;
-}
-
-footer {
-  background: var(--card);
-  text-align: center;
-  padding: 30px;
+footer{
+  background:var(--card);
+  text-align:center;
+  padding:30px;
 }
 </style>
 </head>
@@ -170,44 +127,46 @@ footer {
 </div>
 
 <header>
-  <div class="dark-toggle">
-    <button onclick="toggleDark()">🌙</button>
-  </div>
+  <div class="dark-toggle"><button onclick="toggleDark()">🌙</button></div>
   <div class="lang-switch">
     <button onclick="setLang('de')">🇩🇪</button>
     <button onclick="setLang('en')">🇬🇧</button>
   </div>
 
-  <h1 data-de="Unser Iglu-Projekt" data-en="Our Snow Shelter Project">Unser Iglu-Projekt</h1>
-  <p data-de="Bau eines begehbaren Schneebaus durch Aufhäufen und Aushöhlen."
-     data-en="Construction of a walk-in snow shelter by piling and hollowing out snow.">
-    Bau eines begehbaren Schneebaus durch Aufhäufen und Aushöhlen.
+  <h1 data-de="Unser Iglu-Projekt" data-en="Our Snow Shelter Project">
+    Unser Iglu-Projekt
+  </h1>
+  <p
+    data-de="Dokumentation eines eigenständigen Projekts zum Bau eines begehbaren Schneebaus durch Aufhäufen und anschließendes Aushöhlen."
+    data-en="Documentation of an independent project involving the construction of a walk-in snow shelter by piling and hollowing out snow.">
+    Dokumentation eines eigenständigen Projekts zum Bau eines begehbaren Schneebaus durch Aufhäufen und anschließendes Aushöhlen.
   </p>
 </header>
 
 <section>
 <h2 data-de="Einleitung" data-en="Introduction">Einleitung</h2>
-<p data-de="Dieses Projekt dokumentiert den Bau eines Schneebaus ohne klassische Iglu-Blöcke."
-   data-en="This project documents the construction of a snow shelter without classic igloo blocks.">
-Dieses Projekt dokumentiert den Bau eines Schneebaus ohne klassische Iglu-Blöcke.
+<p
+data-de="Ziel dieses Projekts war es, einen stabilen und sicheren Schneebau zu errichten, der ohne klassische Iglu-Blöcke auskommt. Stattdessen wurde ein großer Schneehaufen aufgeschichtet, verdichtet und anschließend von innen ausgehöhlt. Diese Bauweise ist einfacher umzusetzen und eignet sich besonders für kleinere Teams."
+data-en="The aim of this project was to construct a stable and safe snow shelter without using classic igloo blocks. Instead, a large pile of snow was built, compacted, and then hollowed out from the inside. This method is easier to implement and well suited for small teams.">
+Ziel dieses Projekts war es, einen stabilen und sicheren Schneebau zu errichten, der ohne klassische Iglu-Blöcke auskommt.
 </p>
 </section>
 
 <section class="tech-data">
 <h2 data-de="📐 Technische Daten" data-en="📐 Technical Data">📐 Technische Daten</h2>
 <ul>
-<li><strong>Höhe:</strong> <span data-count="1.8">0</span> m</li>
-<li><strong>Durchmesser:</strong> <span data-count="2.5">0</span> m</li>
-<li><strong>Wandstärke:</strong> <span data-count="50">0</span> cm</li>
-<li><strong>Bauzeit:</strong> <span data-count="4">0</span> h</li>
-<li><strong>Personen:</strong> <span data-count="3">0</span></li>
+<li><strong>Höhe:</strong> <span data-count="Außen: 1m Innen: 0,75">0</span> m</li>
+<li><strong>Durchmesser:</strong> <span data-count="4,5">0</span> m</li>
+<li><strong>Wandstärke:</strong> <span data-count="20">0</span> cm</li>
+<li><strong>Bauzeit:</strong> <span data-count="25">0</span> h</li>
+<li><strong>Personen:</strong> <span data-count="7">0</span></li>
 </ul>
 </section>
 
 <section>
 <h2 data-de="Projektablauf" data-en="Timeline">Projektablauf</h2>
 <div class="timeline">
-  <div class="step"><span>1</span><div><h3>Planung</h3><p>Ort & Sicherheit</p></div></div>
+  <div class="step"><span>1</span><div><h3>Planung</h3><p>Ort, Material & Sicherheit</p></div></div>
   <div class="step"><span>2</span><div><h3>Schneehaufen</h3><p>Aufschichten & Verdichten</p></div></div>
   <div class="step"><span>3</span><div><h3>Aushöhlen</h3><p>Vorsichtig von innen</p></div></div>
   <div class="step"><span>4</span><div><h3>Ergebnis</h3><p>Stabiler Schneebau</p></div></div>
@@ -215,10 +174,19 @@ Dieses Projekt dokumentiert den Bau eines Schneebaus ohne klassische Iglu-Blöck
 </section>
 
 <section>
-<h2 data-de="Vergleich" data-en="Comparison">Vergleich</h2>
+<h2 data-de="Projektteam" data-en="Project Team">Projektteam</h2>
+<p
+data-de="Das Projekt wurde von einem kleinen Team umgesetzt. Die Aufgaben wurden auf Planung, Bau, Sicherheitsüberwachung und Dokumentation aufgeteilt."
+data-en="The project was carried out by a small team. Tasks were divided between planning, construction, safety supervision, and documentation.">
+Das Projekt wurde von einem kleinen Team umgesetzt.
+</p>
+</section>
+
+<section>
+<h2 data-de="Vergleich der Bauarten" data-en="Comparison">Vergleich der Bauarten</h2>
 <table>
-<tr><th>Merkmal</th><th>Schneehaufen</th><th>Klassisches Iglu</th><th>Schneehöhle</th></tr>
-<tr><td>Aufwand</td><td>Gering</td><td>Hoch</td><td>Mittel</td></tr>
+<tr><th>Merkmal</th><th>Schneehaufen-Iglu</th><th>Klassisches Iglu</th><th>Schneehöhle</th></tr>
+<tr><td>Bauaufwand</td><td>Gering</td><td>Hoch</td><td>Mittel</td></tr>
 <tr><td>Erfahrung</td><td>Kaum</td><td>Viel</td><td>Etwas</td></tr>
 <tr><td>Stabilität</td><td>Gut</td><td>Sehr hoch</td><td>Abhängig</td></tr>
 </table>
@@ -227,25 +195,22 @@ Dieses Projekt dokumentiert den Bau eines Schneebaus ohne klassische Iglu-Blöck
 <footer>© 2026 – Iglu-Projekt</footer>
 
 <script>
-function setLang(lang){
-  document.querySelectorAll('[data-de]').forEach(el=>{
-    el.textContent = el.dataset[lang];
-  });
-  localStorage.setItem('lang',lang);
+function setLang(l){
+  document.querySelectorAll('[data-de]').forEach(e=>e.textContent=e.dataset[l]);
+  localStorage.setItem('lang',l);
 }
-if(localStorage.getItem('lang')) setLang(localStorage.getItem('lang'));
+if(localStorage.getItem('lang'))setLang(localStorage.getItem('lang'));
 
 function toggleDark(){
   document.body.classList.toggle('dark');
   localStorage.setItem('dark',document.body.classList.contains('dark'));
 }
-if(localStorage.getItem('dark')==='true') document.body.classList.add('dark');
+if(localStorage.getItem('dark')==='true')document.body.classList.add('dark');
 
 const steps=document.querySelectorAll('.step');
-const obs=new IntersectionObserver(e=>{
-  e.forEach(x=>x.isIntersecting&&x.target.classList.add('visible'))
-},{threshold:0.2});
-steps.forEach(s=>obs.observe(s));
+new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('visible')),{threshold:.2})
+  .observe(steps[0]);
+steps.forEach(s=>new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('visible')),{threshold:.2}).observe(s));
 
 document.querySelectorAll('[data-count]').forEach(el=>{
   let t=+el.dataset.count,c=0;
