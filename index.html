@@ -1,167 +1,174 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iglu-Projekt</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #f4f7fb;
-      color: #1f2937;
-      line-height: 1.6;
-    }
-    header {
-      background: #eaf3ff;
-      padding: 70px 20px;
-      text-align: center;
-      position: relative;
-    }
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .lang-switch {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      gap: 10px;
-    }
-    .lang-switch button {
-      padding: 6px 10px;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background: white;
-    }
-    .dark-toggle {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-    }
-    .dark-toggle button {
-      padding: 6px 10px;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background: white;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      border-left: 5px solid #60a5fa;
-      padding-left: 15px;
-    }
-    footer {
-      background-color: #e5eef7;
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 0.9rem;
-      color: #374151;
-    }
-    .timeline {
-      border-left: 4px solid #60a5fa;
-      padding-left: 25px;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-    .step {
-      display: flex;
-      gap: 15px;
-      align-items: flex-start;
-    }
-    .step span {
-      background: #60a5fa;
-      color: white;
-      font-weight: bold;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .step h3 {
-      margin: 0 0 5px 0;
-    }
-    .tech-data {
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 20px;
-      border-radius: 12px;
-      background: var(--card-bg, #f4f6f8);
-      color: var(--text-color, #111);
-    }
-    .tech-data h2 {
-      margin-bottom: 15px;
-    }
-    .tech-data ul {
-      list-style: none;
-      padding: 0;
-    }
-    .tech-data li {
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      padding: 10px;
-      border-bottom: 1px solid #ccc;
-      text-align: left;
-    }
-    th {
-      border-bottom: 2px solid #60a5fa;
-    }
-    /* Dark Mode */
-    body.dark {
-      background-color: #0f172a;
-      color: #e5e7eb;
-    }
-    body.dark header {
-      background: #020617;
-    }
-    body.dark section h2 {
-      border-left-color: #38bdf8;
-    }
-    body.dark footer {
-      background-color: #020617;
-      color: #cbd5f5;
-    }
-    body.dark .timeline {
-      border-left-color: #38bdf8;
-    }
-    body.dark .step span {
-      background: #38bdf8;
-    }
-    body.dark .tech-data {
-      background: #1e293b;
-      color: #e5e7eb;
-    }
-    body.dark table th, body.dark table td {
-      border-color: #38bdf8;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iglu-Projekt</title>
+
+<style>
+:root {
+  --bg: #f4f7fb;
+  --text: #1f2937;
+  --card: #ffffff;
+  --accent: #60a5fa;
+}
+
+body.dark {
+  --bg: #0f172a;
+  --text: #e5e7eb;
+  --card: #1e293b;
+  --accent: #38bdf8;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Schneeflocken */
+.snowflakes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.snowflake {
+  position: absolute;
+  top: -10%;
+  font-size: 1.5rem;
+  color: #cfe9ff;
+  opacity: 0.7;
+  animation: fall linear infinite;
+}
+.snowflake:nth-child(1){left:10%;animation-duration:14s}
+.snowflake:nth-child(2){left:30%;animation-duration:18s}
+.snowflake:nth-child(3){left:50%;animation-duration:12s}
+.snowflake:nth-child(4){left:70%;animation-duration:20s}
+.snowflake:nth-child(5){left:90%;animation-duration:16s}
+
+@keyframes fall {
+  to { transform: translateY(110vh); }
+}
+
+header, section, footer {
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  background: var(--card);
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.lang-switch, .dark-toggle {
+  position: absolute;
+  top: 20px;
+}
+.lang-switch { right: 20px; }
+.dark-toggle { left: 20px; }
+
+button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--card);
+}
+
+button:hover {
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+section {
+  max-width: 900px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+h2 {
+  border-left: 5px solid var(--accent);
+  padding-left: 15px;
+}
+
+.timeline {
+  border-left: 4px solid var(--accent);
+  padding-left: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.step {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: 0.6s;
+  display: flex;
+  gap: 15px;
+}
+.step.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.step span {
+  background: var(--accent);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-data {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.tech-data ul {
+  list-style: none;
+  padding: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #999;
+}
+
+footer {
+  background: var(--card);
+  text-align: center;
+  padding: 30px;
+}
+</style>
 </head>
+
 <body>
+
+<div class="snowflakes">
+  <div class="snowflake">❄</div>
+  <div class="snowflake">❄</div>
+  <div class="snowflake">❄</div>
+  <div class="snowflake">❄</div>
+  <div class="snowflake">❄</div>
+</div>
+
 <header>
   <div class="dark-toggle">
     <button onclick="toggleDark()">🌙</button>
@@ -170,171 +177,85 @@
     <button onclick="setLang('de')">🇩🇪</button>
     <button onclick="setLang('en')">🇬🇧</button>
   </div>
+
   <h1 data-de="Unser Iglu-Projekt" data-en="Our Snow Shelter Project">Unser Iglu-Projekt</h1>
-  <p data-de="Dokumentation eines eigenständigen Projekts: Bau eines begehbaren Schneebaus durch Aufhäufen und anschließendes Aushöhlen von Schnee."
-     data-en="Documentation of an independent project: construction of a walk-in snow shelter by piling up and hollowing out snow.">
-    Dokumentation eines eigenständigen Projekts: Bau eines begehbaren Schneebaus durch Aufhäufen und anschließendes Aushöhlen von Schnee.
+  <p data-de="Bau eines begehbaren Schneebaus durch Aufhäufen und Aushöhlen."
+     data-en="Construction of a walk-in snow shelter by piling and hollowing out snow.">
+    Bau eines begehbaren Schneebaus durch Aufhäufen und Aushöhlen.
   </p>
 </header>
 
 <section>
-  <h2 data-de="Einleitung" data-en="Introduction">Einleitung</h2>
-  <p data-de="Ziel dieses Projekts war es, einen stabilen und begehbaren Schneebau zu errichten. Anders als bei einem klassischen Iglu aus Eisblöcken wurde hierbei ein großer Schneehaufen aufgeschichtet und anschließend ausgehöhlt."
-     data-en="The aim of this project was to construct a stable, walk-in snow shelter. Unlike a classic igloo made of ice blocks, a large pile of snow was built and then hollowed out.">
-    Ziel dieses Projekts war es, einen stabilen und begehbaren Schneebau zu errichten. Anders als bei einem klassischen Iglu aus Eisblöcken wurde hierbei ein großer Schneehaufen aufgeschichtet und anschließend ausgehöhlt.
-  </p>
-</section>
-
-<section>
-  <h2 data-de="Projektziel" data-en="Project Goal">Projektziel</h2>
-  <p data-de="Das Projekt sollte zeigen, dass mit einfachen Mitteln und ohne Spezialwerkzeuge ein funktionaler Schneeschutzraum gebaut werden kann. Praktische Erfahrung mit Schnee als Baumaterial war im Vordergrund."
-     data-en="The project aimed to demonstrate that a functional snow shelter can be built using simple methods and without special tools. Practical experience with snow as a building material was a key focus.">
-    Das Projekt sollte zeigen, dass mit einfachen Mitteln und ohne Spezialwerkzeuge ein funktionaler Schneeschutzraum gebaut werden kann.
-  </p>
+<h2 data-de="Einleitung" data-en="Introduction">Einleitung</h2>
+<p data-de="Dieses Projekt dokumentiert den Bau eines Schneebaus ohne klassische Iglu-Blöcke."
+   data-en="This project documents the construction of a snow shelter without classic igloo blocks.">
+Dieses Projekt dokumentiert den Bau eines Schneebaus ohne klassische Iglu-Blöcke.
+</p>
 </section>
 
 <section class="tech-data">
-  <h2 data-de="📐 Technische Daten" data-en="📐 Technical Data">📐 Technische Daten</h2>
-  <ul>
-    <li><strong>Höhe des Iglus:</strong> ca. 1 m</li>
-    <li><strong>Durchmesser:</strong> ca. 4 m</li>
-    <li><strong>Wandstärke:</strong> ca. 20cm</li>
-    <li><strong>Bauzeit:</strong> ca. 20 Stunden</li>
-    <li><strong>Anzahl Personen:</strong> 7</li>
-  </ul>
+<h2 data-de="📐 Technische Daten" data-en="📐 Technical Data">📐 Technische Daten</h2>
+<ul>
+<li><strong>Höhe:</strong> <span data-count="1.8">0</span> m</li>
+<li><strong>Durchmesser:</strong> <span data-count="2.5">0</span> m</li>
+<li><strong>Wandstärke:</strong> <span data-count="50">0</span> cm</li>
+<li><strong>Bauzeit:</strong> <span data-count="4">0</span> h</li>
+<li><strong>Personen:</strong> <span data-count="3">0</span></li>
+</ul>
 </section>
 
 <section>
-  <h2 data-de="Durchführung" data-en="Construction Process">Durchführung</h2>
-  <p data-de="Zunächst wurde an geeigneter Stelle ein großer Schneehaufen aufgeschichtet und verdichtet. Nach einer kurzen Wartezeit wurde der Schnee vorsichtig ausgehöhlt, sodass ein stabiler Hohlraum entstand."
-     data-en="First, a large pile of snow was built and compacted at a suitable location. After a short waiting period, the snow was carefully hollowed out from the inside, creating a stable cavity.">
-    Zunächst wurde an geeigneter Stelle ein großer Schneehaufen aufgeschichtet und verdichtet.
-  </p>
+<h2 data-de="Projektablauf" data-en="Timeline">Projektablauf</h2>
+<div class="timeline">
+  <div class="step"><span>1</span><div><h3>Planung</h3><p>Ort & Sicherheit</p></div></div>
+  <div class="step"><span>2</span><div><h3>Schneehaufen</h3><p>Aufschichten & Verdichten</p></div></div>
+  <div class="step"><span>3</span><div><h3>Aushöhlen</h3><p>Vorsichtig von innen</p></div></div>
+  <div class="step"><span>4</span><div><h3>Ergebnis</h3><p>Stabiler Schneebau</p></div></div>
+</div>
 </section>
 
 <section>
-  <h2 data-de="Projektablauf" data-en="Project Timeline">Projektablauf</h2>
-  <div class="timeline">
-    <div class="step">
-      <span>1</span>
-      <div>
-        <h3 data-de="Planung" data-en="Planning">Planung</h3>
-        <p data-de="Idee, Ort und Sicherheitsaspekte wurden vorab festgelegt." data-en="Idea, location, and safety aspects were defined in advance.">Idee, Ort und Sicherheitsaspekte wurden vorab festgelegt.</p>
-      </div>
-    </div>
-    <div class="step">
-      <span>2</span>
-      <div>
-        <h3 data-de="Schneehaufen" data-en="Snow Pile">Schneehaufen</h3>
-        <p data-de="Große Menge Schnee wurde aufgeschichtet und verdichtet." data-en="A large amount of snow was piled up and compacted.">Große Menge Schnee wurde aufgeschichtet und verdichtet.</p>
-      </div>
-    </div>
-    <div class="step">
-      <span>3</span>
-      <div>
-        <h3 data-de="Aushöhlen" data-en="Hollowing Out">Aushöhlen</h3>
-        <p data-de="Der Schneehaufen wurde vorsichtig von innen ausgehöhlt." data-en="The snow pile was carefully hollowed out from the inside.">Der Schneehaufen wurde vorsichtig von innen ausgehöhlt.</p>
-      </div>
-    </div>
-    <div class="step">
-      <span>4</span>
-      <div>
-        <h3 data-de="Ergebnis" data-en="Result">Ergebnis</h3>
-        <p data-de="Ein stabiler, begehbarer Schneebau entstand." data-en="A stable, walk-in snow shelter was created.">Ein stabiler, begehbarer Schneebau entstand.</p>
-      </div>
-    </div>
-  </div>
+<h2 data-de="Vergleich" data-en="Comparison">Vergleich</h2>
+<table>
+<tr><th>Merkmal</th><th>Schneehaufen</th><th>Klassisches Iglu</th><th>Schneehöhle</th></tr>
+<tr><td>Aufwand</td><td>Gering</td><td>Hoch</td><td>Mittel</td></tr>
+<tr><td>Erfahrung</td><td>Kaum</td><td>Viel</td><td>Etwas</td></tr>
+<tr><td>Stabilität</td><td>Gut</td><td>Sehr hoch</td><td>Abhängig</td></tr>
+</table>
 </section>
 
-<section>
-  <h2 data-de="Fakten" data-en="Facts">Fakten</h2> 
-  <ul>
-    <li data-de="Projektart: Eigenständiges Freizeitprojekt" data-en="Project type: independent leisure project">Projektart: Eigenständiges Freizeitprojekt</li>
-    <li data-de="Bauweise: Schneehaufen mit Aushöhlung" data-en="Construction method: piled snow, hollowed out">Bauweise: Schneehaufen mit Aushöhlung</li>
-    <li data-de="Material: Natürlicher Schnee" data-en="Material: natural snow">Material: Natürlicher Schnee</li>
-    <li data-de="Werkzeuge: Hände und einfache Hilfsmittel" data-en="Tools: hands and simple tools">Werkzeuge: Hände und einfache Hilfsmittel</li>
-    <li data-de="Nutzung: Kurzzeitiger Schneeschutzraum" data-en="Use: short-term snow shelter">Nutzung: Kurzzeitiger Schneeschutzraum</li>
-  </ul>
-</section>
-
-<section>
-  <h2 data-de="Projektteam" data-en="Project Team">Projektteam</h2>
-  <p data-de="Das Projekt wurde gemeinschaftlich von einem kleinen Team geplant und umgesetzt. Die Aufgaben umfassten Planung, Bau, Sicherheit und Dokumentation."
-     data-en="The project was planned and carried out collaboratively by a small team. Tasks included planning, construction, safety, and documentation.">
-    Das Projekt wurde gemeinschaftlich von einem kleinen Team geplant und umgesetzt.
-  </p>
-</section>
-
-<section>
-  <h2 data-de="Vergleich der Bauarten" data-en="Comparison of Snow Structures">Vergleich der Bauarten</h2>
-  <table>
-    <thead>
-      <tr>
-        <th data-de="Merkmal" data-en="Feature">Merkmal</th>
-        <th data-de="Schneehaufen-Iglu" data-en="Snow Mound Igloo">Schneehaufen-Iglu</th>
-        <th data-de="Klassisches Iglu" data-en="Classic Igloo">Klassisches Iglu</th>
-        <th data-de="Schneehöhle" data-en="Snow Cave">Schneehöhle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td data-de="Bauaufwand" data-en="Construction effort">Bauaufwand</td>
-        <td data-de="Gering" data-en="Low">Gering</td>
-        <td data-de="Hoch" data-en="High">Hoch</td>
-        <td data-de="Mittel" data-en="Medium">Mittel</td>
-      </tr>
-      <tr>
-        <td data-de="Benötigte Erfahrung" data-en="Required experience">Benötigte Erfahrung</td>
-        <td data-de="Kaum" data-en="Very little">Kaum</td>
-        <td data-de="Viel" data-en="A lot">Viel</td>
-        <td data-de="Etwas" data-en="Some">Etwas</td>
-      </tr>
-      <tr>
-        <td data-de="Stabilität" data-en="Stability">Stabilität</td>
-        <td data-de="Gut bei verdichtetem Schnee" data-en="Good with compacted snow">Gut bei verdichtetem Schnee</td>
-        <td data-de="Sehr hoch" data-en="Very high">Sehr hoch</td>
-        <td data-de="Abhängig vom Hang" data-en="Depends on slope">Abhängig vom Hang</td>
-      </tr>
-      <tr>
-        <td data-de="Zeitaufwand" data-en="Time required">Zeitaufwand</td>
-        <td data-de="Kurz" data-en="Short">Kurz</td>
-        <td data-de="Lang" data-en="Long">Lang</td>
-        <td data-de="Mittel" data-en="Medium">Mittel</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-<section>
-  <h2 data-de="Erkenntnisse" data-en="Findings">Erkenntnisse</h2>
-  <p data-de="Der Schneebau erwies sich als überraschend stabil. Besonders wichtig waren eine ausreichende Wandstärke und vorsichtiges Aushöhlen, um die Stabilität zu erhalten." data-en="The snow shelter proved to be surprisingly stable. Maintaining sufficient wall thickness and careful hollowing were crucial for stability.">
-    Der Schneebau erwies sich als überraschend stabil.
-  </p>
-</section>
-
-<footer>
-  © 2026 – Iglu-Projekt
-</footer>
+<footer>© 2026 – Iglu-Projekt</footer>
 
 <script>
-  function setLang(lang) {
-    document.querySelectorAll('[data-de]').forEach(el => {
-      el.innerText = el.getAttribute('data-' + lang);
-    });
-    localStorage.setItem('lang', lang);
-  }
+function setLang(lang){
+  document.querySelectorAll('[data-de]').forEach(el=>{
+    el.textContent = el.dataset[lang];
+  });
+  localStorage.setItem('lang',lang);
+}
+if(localStorage.getItem('lang')) setLang(localStorage.getItem('lang'));
 
-  const savedLang = localStorage.getItem('lang');
-  if (savedLang) setLang(savedLang);
+function toggleDark(){
+  document.body.classList.toggle('dark');
+  localStorage.setItem('dark',document.body.classList.contains('dark'));
+}
+if(localStorage.getItem('dark')==='true') document.body.classList.add('dark');
 
-  function toggleDark() {
-    document.body.classList.toggle('dark');
-    localStorage.setItem('dark', document.body.classList.contains('dark'));
-  }
+const steps=document.querySelectorAll('.step');
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>x.isIntersecting&&x.target.classList.add('visible'))
+},{threshold:0.2});
+steps.forEach(s=>obs.observe(s));
 
-  if (localStorage.getItem('dark') === 'true') {
-    document.body.classList.add('dark');
-  }
+document.querySelectorAll('[data-count]').forEach(el=>{
+  let t=+el.dataset.count,c=0;
+  let i=setInterval(()=>{
+    c+=t/40;
+    if(c>=t){c=t;clearInterval(i)}
+    el.textContent=c.toFixed(1).replace('.0','');
+  },20);
+});
 </script>
+
 </body>
 </html>
